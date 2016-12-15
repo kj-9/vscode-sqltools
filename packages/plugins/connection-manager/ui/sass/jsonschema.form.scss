@@ -1,0 +1,124 @@
+// @TODO css -modules
+
+.rjsf {
+  fieldset, #root {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none !important;
+
+    .form-group {
+      display: flex;
+      padding-top: 6px;
+      padding-bottom: 9px;
+      flex-wrap: wrap;
+      > * {
+        flex-grow: 0;
+        min-width: 200px;
+      }
+      legend {
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+      fieldset {
+        flex-grow: 1;
+        padding: 1rem;
+        border: 1px solid var(--vscode-input-border, currentColor);
+        background: rgba(255,255,255,0.01);
+      }
+      > p.field-description, > p.help-block  {
+        flex-grow: 1;
+        flex-basis: calc(100% - 160px);
+      }
+      > p.field-description + .form-control, > p.help-block {
+        margin-left: 160px;
+      }
+      > p.help-block {
+        font-size: 0.9em;
+        opacity: 0.7;
+      }
+      > span {
+        flex-grow: 1;
+        min-width: 400px;
+      }
+      label {
+        font-weight: bold;
+        flex-grow: 0;
+        width: 30%;
+        max-width: 160px;
+        min-width: 100px;
+      }
+
+      .required {
+        font-weight: bold;
+      }
+
+      > .checkbox {
+        label {
+          display: flex;
+          flex-direction: row-reverse;
+          width: 100%;
+          position: relative;
+          input {
+            position: absolute;
+            flex-grow: 0;
+            left: 100%;
+            transform: unset;
+          }
+          span {
+            flex-grow: 1;
+          }
+        }
+      }
+
+      .file-field {
+        display: flex;
+        > input {
+          flex-grow: 1;
+        }
+        > button {
+          overflow: hidden;
+          flex-grow: 0;
+          position: relative;
+          > input[type=file] {
+            cursor: pointer;
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            opacity: 0;
+            width: 100%;
+          }
+
+        }
+      }
+
+      .error-detail, .error-detail li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .error-detail li {
+        margin-left: 1em;
+        border-radius: 4px;
+        padding: 4px;
+        display: inline-block;
+        background: rgba(255, 0, 0, 0.4);
+      }
+    }
+  }
+  footer {
+    button:first-child {
+      margin-left: 0;
+    }
+    button:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.vscode-light .rjsf fieldset .form-group fieldset {
+  background: rgba(0,0,0,0.01);
+}

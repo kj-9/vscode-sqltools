@@ -1,0 +1,23 @@
+module.exports = {
+  ...(require('./test/config/baseConfig')),
+  preset: 'ts-jest',
+  collectCoverageFrom: ['<rootDir>/packages/**/*.ts', '<rootDir>/packages/**/*.tsx'],
+  modulePathIgnorePatterns: ['<rootDir>/test', '<rootDir>/.vscode-test', '/constants\.ts', '/exception/', '<rootDir>/packages/drivers', '<rootDir>/packages/generator-sqltools-driver'],
+  coverageDirectory: '<rootDir>/coverage',
+  coverageThreshold: {
+    // global: {
+    //   statements: 13,
+    //   branches: 7,
+    //   functions: 15,
+    //   lines: 14,
+    // },
+  },
+  testMatch: ['**/*.test.(ts)'],
+  globals: {
+    'ts-jest': {
+      diagnostics: {
+        warnOnly: true
+      }
+    }
+  }
+};

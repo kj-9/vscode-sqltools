@@ -1,0 +1,43 @@
+{
+  "name": "@sqltools/base-driver",
+  "version": "0.1.10",
+  "description": "SQLTools Base Driver",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "author": "Matheus Teixeira <me@mteixeira.dev>",
+  "license": "MIT",
+  "homepage": "https://vscode-sqltools.mteixeira.dev/?umd_source=npm&utm_medium=pkgjson&utm_campaign=base-driver",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mtxr/vscode-sqltools.git",
+    "directory": "packages/base-driver"
+  },
+  "bugs": {
+    "url": "https://github.com/mtxr/vscode-sqltools/issues"
+  },
+  "scripts": {
+    "prebuild": "rimraf -rf dist *.tgz",
+    "build": "tsc -p tsconfig.json",
+    "prepack": "yarn run build",
+    "prepare": "yarn run build",
+    "release": "npm pack && npm publish *.tgz --tag latest --access public",
+    "beta": "npm pack && npm publish *.tgz --tag beta --access public"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.9",
+    "@types/resolve": "^1.17.1",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "@sqltools/types": "latest",
+    "@sqltools/log": "latest",
+    "env-paths": "^2.2.0",
+    "make-dir": "^3.1.0",
+    "resolve": "^1.17.0",
+    "vscode-languageserver": "6.1.1"
+  }
+}

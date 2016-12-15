@@ -1,0 +1,30 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "packages/drivers/package.json",
+        "packages/extension/package.json",
+        "packages/formatter/package.json",
+        "packages/language-server/package.json",
+        "packages/plugins/package.json",
+        "packages/types/package.json",
+        "packages/ui/package.json",
+        "packages/util/package.json",
+        "packages/vscode/package.json"
+      ]
+    }
+  },
+  "ignore": [
+    "@sqltools/drivers",
+    "@sqltools/extension",
+    "@sqltools/formatter",
+    "@sqltools/formatter",
+    "@sqltools/language-server",
+    "@sqltools/plugins",
+    "@sqltools/types",
+    "@sqltools/ui",
+    "@sqltools/util",
+    "@sqltools/vscode"
+  ]
+}

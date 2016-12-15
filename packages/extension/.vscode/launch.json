@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch SQLTools",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "${workspaceFolder}/../../test/project.code-workspace",
+        "--extensionDevelopmentPath=${workspaceFolder}"
+      ],
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/dist/**/*.js"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach SQLTools LS",
+      "port": 6010,
+      "restart": true,
+      "sourceMaps": true,
+      "protocol": "inspector",
+      "timeout": 100000,
+      "outFiles": [
+        "${workspaceFolder}/dist/**/*.js"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Launch Extension and LS",
+      "configurations": ["Launch SQLTools", "Attach SQLTools LS"]
+    }
+  ]
+}

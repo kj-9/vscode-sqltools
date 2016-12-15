@@ -1,0 +1,42 @@
+{
+  "name": "@sqltools/build-tools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf -rf ../packages/extension/dist ../**/*.vsix",
+    "build:pack": "cd ../packages/extension && vsce package --yarn -o ../../.",
+    "build:webpack": "node --max_old_space_size=8192 ./node_modules/.bin/webpack",
+    "build": "yarn run build:webpack",
+    "dev:watch": "yarn run webpack --watch --info-verbosity verbose",
+    "postbuild": "rimraf -rf ../packages/extension/dist/ui/theme.js || exit 0",
+    "predev:watch": "yarn run clean",
+    "prebuild:pack": "yarn run build",
+    "prebuild:webpack": "yarn run clean"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "7.8.3",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^5.0.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "file-loader": "^4.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "no-emit-webpack-plugin": "^2.0.1",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "raw-loader": "^4.0.1",
+    "resolve-url-loader": "^3.1.1",
+    "rimraf": "^3.0.0",
+    "sass-loader": "^7.2.0",
+    "terser-webpack-plugin": "^2.3.6",
+    "ts-loader": "^6.0.0",
+    "vsce": "^1.77.0",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5",
+    "webpack-notifier": "^1.8.0"
+  }
+}

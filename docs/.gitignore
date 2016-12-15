@@ -1,0 +1,10 @@
+# gatsby files
+.cache/
+.docz/
+
+# dependencies
+node_modules
+
+!public/*.png
+!public/*.js
+!public/*.css

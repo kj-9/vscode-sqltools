@@ -1,0 +1,28 @@
+{
+  "name": "@sqltools/language-server",
+  "version": "0.21.9",
+  "description": "SQLTools Language Server",
+  "main": "index.ts",
+  "author": "Matheus Teixeira <me@mteixeira.dev>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@sqltools/plugins": "*",
+    "@sqltools/util": "*",
+    "vscode-languageserver": "6.1.1",
+    "vscode-languageserver-textdocument": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-transform-spread": "^7.2.2",
+    "@babel/preset-env": "^7.5.5",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^14.0.5",
+    "@types/webpack-env": "^1.15.2",
+    "jest": "^24.5.0",
+    "jest-cli": "^24.5.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.7.3"
+  }
+}

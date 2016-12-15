@@ -1,0 +1,25 @@
+{
+  "name": "@sqltools/util",
+  "version": "1.0.0",
+  "description": "SQLTools Logger",
+  "author": "Matheus Teixeira <me@mteixeira.dev>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@sentry/node": "5.12.4",
+    "@sqltools/types": "*",
+    "@sqltools/vscode": "*",
+    "@sqltools/log": "*",
+    "env-paths": "^2.2.0",
+    "lru-cache": "5.1.1",
+    "make-dir": "^3.1.0",
+    "uuid": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.42.0",
+    "jest": "^24.5.0",
+    "jest-cli": "^24.5.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.7.3"
+  }
+}

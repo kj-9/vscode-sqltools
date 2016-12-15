@@ -1,0 +1,58 @@
+{
+  "name": "sqltools",
+  "displayName": "SQLTools - Database tools",
+  "description": "Database management done right. Connection explorer, query runner, intellisense, bookmarks, query history. Feel like a database hero!",
+  "version": "1.0.0",
+  "publisher": "mtxr",
+  "author": "Matheus Teixeira <me@mteixeira.dev>",
+  "license": "MIT",
+  "main": "./dist/extension.js",
+  "homepage": "https://vscode-sqltools.mteixeira.dev/",
+  "repository": {
+    "url": "https://github.com/mtxr/vscode-sqltools.git",
+    "type": "git"
+  },
+  "engines": {
+    "vscode": "^1.42.0",
+    "node": ">=10"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn --cwd ./build-tools run build",
+    "docs:build": "yarn --cwd ./docs run docz:build",
+    "docs:dev": "yarn --cwd ./docs run docz:dev",
+    "dev:jest": "jest --config jest.config.js --passWithNoTests",
+    "dev:watch": "cross-env NODE_ENV=development yarn --cwd ./build-tools run dev:watch",
+    "build:pack": "yarn --cwd ./build-tools run build:pack",
+    "postinstall": "yarn workspace @sqltools/base-driver run prepare && yarn workspace @sqltools/formatter install && yarn --cwd ./build-tools && yarn --cwd ./docs",
+    "pretest": "rimraf -rf ./coverage",
+    "pack:release": "cross-env NODE_ENV=production yarn run build:pack",
+    "test:docker": "yarn --cwd ./test run",
+    "test:older": "cross-env CODE_VERSION=1.41.0 yarn test",
+    "test:watch": "cross-env WATCH=1 yarn run test",
+    "test": "cross-env CODE_DISABLE_EXTENSIONS=1 CODE_EXTENSIONS_PATH=./dist CODE_TESTS_WORKSPACE=./test/docker node ./test/run-tests.js",
+    "start": "yarn run dev:watch",
+    "prepack:all": "rimraf -rf *.vsix dist",
+    "pack:all": "cross-env DISPLAY_NAME=SQLTools NODE_ENV=production concurrently --kill-others-on-fail \"npm:build:pack\" \"npm:driver:pack\"",
+    "driver:pack": "concurrently --kill-others-on-fail \"npm:driver:pack:*\"",
+    "driver:pack:pg": "(cd packages/driver.pg/ && yarn run package && mv *.vsix '../../.')",
+    "driver:pack:mysql": "(cd packages/driver.mysql/ && yarn run package && mv *.vsix '../../.')",
+    "driver:pack:mssql": "(cd packages/driver.mssql/ && yarn run package && mv *.vsix '../../.')",
+    "driver:pack:sqlite": "(cd packages/driver.sqlite/ && yarn run package && mv *.vsix '../../.')"
+  },
+  "devDependencies": {
+    "@types/source-map-support": "^0.5.0",
+    "cross-env": "^7.0.2",
+    "jest": "^24.5.0",
+    "jest-cli": "^24.5.0",
+    "jest-environment-node": "^24.5.0",
+    "minimist": "^1.2.3",
+    "rimraf": "^3.0.0",
+    "source-map-support": "^0.5.11",
+    "typescript": "^3.7.3",
+    "vsce": "1.76.0"
+  }
+}
