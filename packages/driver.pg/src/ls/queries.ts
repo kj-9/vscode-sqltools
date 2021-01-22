@@ -210,17 +210,31 @@ ORDER BY
   db.datname;
 `;
 const fetchSchemas: IBaseQueries['fetchSchemas'] = queryFactory`
-SELECT
-  schema_name AS label,
-  schema_name AS schema,
-  '${ContextValue.SCHEMA}' as "type",
-  'group-by-ref-type' as "iconId",
-  catalog_name as database
-FROM information_schema.schemata
-WHERE
-  schema_name !~ '^pg_'
-  AND schema_name <> 'information_schema'
-  AND catalog_name = '${p => p.database}'
+SELECT DISTINCT *
+FROM (
+  SELECT table_schema as label,
+      table_schema as schema,
+      '${ContextValue.SCHEMA}' as "type",
+      'group-by-ref-type' as "iconId",
+      table_catalog as database
+  FROM information_schema.tables
+  WHERE
+    table_schema !~ '^pg_'
+    AND table_schema <> 'information_schema'
+    AND table_catalog = '${p => p.database}'
+  UNION
+  SELECT
+    schema_name AS label,
+    schema_name AS schema,
+    '${ContextValue.SCHEMA}' as "type",
+    'group-by-ref-type' as "iconId",
+    catalog_name as database
+  FROM information_schema.schemata
+  WHERE
+    schema_name !~ '^pg_'
+    AND schema_name <> 'information_schema'
+    AND catalog_name = '${p => p.database}'
+)
 `;
 
 export default {
