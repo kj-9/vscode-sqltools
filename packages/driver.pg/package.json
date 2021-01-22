@@ -6,7 +6,7 @@
   "engines": {
     "vscode": "^1.42.0"
   },
-  "publisher": "kj-9",
+  "publisher": "kj",
   "license": "MIT",
   "private": true,
   "repository": {
@@ -26,7 +26,7 @@
     "theme": "dark",
     "color": "#333333"
   },
-  "icon": "icons/redshift.default.png",
+  "icon": "icon.png",
   "categories": [
     "Programming Languages",
     "Snippets",
