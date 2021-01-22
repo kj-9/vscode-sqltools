@@ -1,28 +1,13 @@
-# SQLTools PostgreSQL/Cockroach/Redshift Driver
+# SQLTools Redshift Driver
 
-This package is part of [vscode-sqltools](https://vscode-sqltools.mteixeira.dev/?umd_source=repository&utm_medium=readme&utm_campaign=pg) extension.
+Dedcated Redshift Driver for [vscode-sqltools](https://vscode-sqltools.mteixeira.dev/?umd_source=repository&utm_medium=readme&utm_campaign=pg) extension forked from [PostgreSQL/Redshift Driver](https://github.com/mtxr/vscode-sqltools/tree/master/packages/driver.pg) v0.2.0
+
+This driver adds:
+- show schema and table objects correctly: [#604](https://github.com/mtxr/vscode-sqltools/issues/604)
 
 ## Changelog
 
-### 0.2.0
+### 0.0.1
 
-- Fixes ssl issue. [#640](https://github.com/mtxr/vscode-sqltools/issues/640) [#675](https://github.com/mtxr/vscode-sqltools/issues/675)
-- Update `base-driver` package.
+- First working version for fix [#604](https://github.com/mtxr/vscode-sqltools/issues/604)
 
-### 0.1.0
-
-- Sync official driver versions and technology
-
-### 0.0.7
-
-- Upgrade node package to `pg@8.x`.
-- Added options for SSL connecitons.
-- Fixes password as optional. [#621](https://github.com/mtxr/vscode-sqltools/issues/621)
-
-### 0.0.4
-
-- Fixes drivers not showing data type on explorer. [#595](https://github.com/mtxr/vscode-sqltools/issues/595)
-
-### 0.0.3
-
-- First working version
