@@ -2,7 +2,7 @@
   "name": "sqltools-driver-redshift",
   "displayName": "SQLTools Redshift Driver",
   "description": "SQLTools Redshift Driver",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.42.0"
   },
