@@ -1,37 +1,32 @@
 {
-  "name": "sqltools-driver-pg",
-  "displayName": "SQLTools PostgreSQL/Cockroach/Redshift Driver",
-  "description": "SQLTools PostgreSQL/Cockroach/Redshift Driver",
-  "version": "0.2.0",
+  "name": "sqltools-driver-redshift",
+  "displayName": "SQLTools Redshift Driver",
+  "description": "SQLTools Redshift Driver",
+  "version": "0.0.1",
   "engines": {
     "vscode": "^1.42.0"
   },
-  "publisher": "mtxr",
+  "publisher": "kj-9",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/mtxr/vscode-sqltools.git",
+    "url": "https://github.com/kj-9/vscode-sqltools-driver-redshift",
     "directory": "packages/drivers.pg"
   },
   "bugs": {
-    "url": "https://github.com/mtxr/vscode-sqltools/labels/pg"
+    "url": "https://github.com/kj-9/vscode-sqltools-driver-redshift/issues"
   },
   "keywords": [
     "sqltools-driver",
-    "postgre",
-    "postgres",
-    "postgresql",
     "redshift",
-    "aws redshift",
-    "cockroach",
-    "cockroachdb"
+    "aws redshift"
   ],
   "galleryBanner": {
     "theme": "dark",
     "color": "#333333"
   },
-  "icon": "icon.png",
+  "icon": "icons/redshift.default.png",
   "categories": [
     "Programming Languages",
     "Snippets",
