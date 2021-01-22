@@ -2,7 +2,7 @@ import { IExtension, IExtensionPlugin, IDriverExtensionApi } from '@sqltools/typ
 import { ExtensionContext, extensions } from 'vscode';
 import { DRIVER_ALIASES } from './constants';
 const { publisher, name } = require('../package.json');
-const driverName = 'PostgreSQL/Redshift';
+const driverName = 'Redshift';
 export async function activate(extContext: ExtensionContext): Promise<IDriverExtensionApi> {
   const sqltools = extensions.getExtension<IExtension>('mtxr.sqltools');
   if (!sqltools) {
@@ -19,23 +19,11 @@ export async function activate(extContext: ExtensionContext): Promise<IDriverExt
     type: 'driver',
     async register(extension) {
       // register ext part here
-      // postgres
-      extension.resourcesMap().set(`driver/${DRIVER_ALIASES[0].value}/icons`, {
-        active: extContext.asAbsolutePath('icons/pg/active.png'),
-        default: extContext.asAbsolutePath('icons/pg/default.png'),
-        inactive: extContext.asAbsolutePath('icons/pg/inactive.png'),
-      });
       // redshift
-      extension.resourcesMap().set(`driver/${DRIVER_ALIASES[1].value}/icons`, {
+      extension.resourcesMap().set(`driver/${DRIVER_ALIASES[0].value}/icons`, {
         active: extContext.asAbsolutePath('icons/redshift/active.png'),
         default: extContext.asAbsolutePath('icons/redshift/default.png'),
         inactive: extContext.asAbsolutePath('icons/redshift/inactive.png'),
-      });
-      // cockroach
-      extension.resourcesMap().set(`driver/${DRIVER_ALIASES[2].value}/icons`, {
-        active: extContext.asAbsolutePath('icons/cockroach/active.png'),
-        default: extContext.asAbsolutePath('icons/cockroach/default.png'),
-        inactive: extContext.asAbsolutePath('icons/cockroach/inactive.png'),
       });
       DRIVER_ALIASES.forEach(({ value }) => {
         extension.resourcesMap().set(`driver/${value}/extension-id`, extensionId);
